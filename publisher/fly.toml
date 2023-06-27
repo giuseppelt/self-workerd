@@ -1,0 +1,45 @@
+# fly.toml app configuration file generated for self-workerd-publisher on 2023-06-27T17:07:42+02:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "self-workerd-publisher"
+kill_signal = "SIGINT"
+kill_timeout = "5s"
+primary_region = "ams"
+
+[build]
+image = "self-workerd-publisher"
+
+[env]
+DATA_PATH = "/data"
+FLY_WORKER_APP = "self-workerd-worker"
+PORT = "3000"
+
+[[mounts]]
+destination = "/data"
+source = "self_workerd_data"
+
+[[services]]
+internal_port = 3000
+processes = ["app"]
+protocol = "tcp"
+
+[[services.ports]]
+force_https = true
+handlers = ["http"]
+port = 80
+
+[[services.ports]]
+handlers = ["tls", "http"]
+port = 443
+[services.concurrency]
+hard_limit = 250
+soft_limit = 200
+type = "connections"
+
+[[services.tcp_checks]]
+grace_period = "1s"
+interval = "15s"
+restart_limit = 0
+timeout = "2s"

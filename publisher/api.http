@@ -1,0 +1,23 @@
+@host = http://localhost:{{$dotenv PORT}}
+
+### publish call
+POST {{host}}/publish
+Content-Type: application/json
+
+{
+    "name": "test",
+    "module": "export default { fetch(){ return new Response(JSON.stringify({test:true})); }}"
+} 
+
+### publish call - 2
+POST {{host}}/publish
+Content-Type: application/json
+
+{
+    "name": "test2",
+    "module": "export default { fetch(){ return new Response(JSON.stringify({test2:false})); }}"
+} 
+
+
+### getConfig call
+GET {{host}}/getConfig

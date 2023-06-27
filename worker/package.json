@@ -1,0 +1,19 @@
+{
+    "name": "@self-workerd/worker",
+    "version": "0.0.1",
+    "type": "module",
+    "scripts": {
+        "start:worker": "workerd serve ./dist/config.capnp --verbose",
+        "build": "node tasks/build.js"
+    },
+    "engines": {
+        "node": ">=18"
+    },
+    "devDependencies": {
+        "@cloudflare/workers-types": "^4.20230518.0",
+        "esbuild": "^0.18.6"
+    },
+    "dependencies": {
+        "workerd": "^1.20230518.0"
+    }
+}

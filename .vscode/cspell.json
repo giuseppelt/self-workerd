@@ -1,0 +1,26 @@
+{
+    "version": "0.2",
+    "language": "en",
+    "overrides": [
+        {
+            "filename": "**/*.astro",
+            "languageId": "html"
+        }
+    ],
+    "ignorePaths": [
+        "package.json",
+        "package-lock.json",
+        "node_modules",
+        ".git",
+        ".vscode",
+        ".vscode-insiders"
+    ],
+    "words": [
+        "capnp",
+        "fflate",
+        "httpc",
+        "outfile",
+        "tsyringe",
+        "workerd"
+    ]
+}
