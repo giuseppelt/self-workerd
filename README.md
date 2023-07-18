@@ -6,11 +6,29 @@ This project is based on [workerd](https://github.com/cloudflare/workerd), the V
 
 And, for a real scenario, it uses [Fly](https://fly.io) as cloud provider, where the FaaS is hosted. It relies on container-based deployment.
 
-## Step by step tutorial
+## Step by step Tutorial
 A complete guide can be found on
-https://www.breakp.dev/blog/build-your-own-faas
+[https://www.breakp.dev/blog/build-your-own-faas](https://www.breakp.dev/blog/build-your-own-faas/?from=github-readme)
 
 It includes everything - from setup, to test and deploy.
+
+
+## Local run
+This is a pnpm managed repository. So, it all starts with
+```
+pnpm install
+```
+Then you can start the publisher
+```
+cd publisher
+pnpm dev
+```
+and the worker
+```
+cd worker
+pnpm build
+pnpm start:worker
+```
 
 
 ## Follow updates
